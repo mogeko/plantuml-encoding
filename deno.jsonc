@@ -1,6 +1,12 @@
 {
+  "name": "@mogeko/plantuml-encoding",
   "tasks": {
     "test": "deno test --doc --frozen=false"
+  },
+  "exports": {
+    ".": "./src/mod.ts",
+    "./decode": "./src/decode.ts",
+    "./encode": "./src/encode.ts"
   },
   "imports": {
     "@/": "./src/",

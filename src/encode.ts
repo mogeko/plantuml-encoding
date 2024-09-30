@@ -6,7 +6,7 @@ function encode6bit(b: number) {
   if (b < 62) return 61 + b; // a-z
   if (b === 62) return 45; // -
   if (b === 63) return 95; // _
-  return 63; // ?
+  return -1;
 }
 
 function* encode3bytes(b1: number, b2: number, b3: number) {
@@ -31,7 +31,7 @@ function encode64(charCodeArray: Uint8Array) {
 }
 
 export function encode(puml: string) {
-  return new TextDecoder().decode(
+  return new TextDecoder("utf-8").decode(
     encode64(deflateRaw(new TextEncoder().encode(puml))),
   );
 }
