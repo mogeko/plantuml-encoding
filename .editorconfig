@@ -19,5 +19,5 @@ indent_size = 2
 trim_trailing_whitespace = false
 indent_size = 2
 
-[*.{json,jsonc}]
+[*.{json,jsonc,yaml,yml}]
 indent_size = 2
