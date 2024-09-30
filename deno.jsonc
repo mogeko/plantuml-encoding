@@ -1,9 +1,6 @@
 {
   "name": "@mogeko/plantuml-encoding",
   "version": "0.0.1",
-  "tasks": {
-    "test": "deno test --doc --frozen=false"
-  },
   "exports": {
     ".": "./src/mod.ts",
     "./decode": "./src/decode.ts",
@@ -12,9 +9,8 @@
   "imports": {
     "@/": "./src/",
     "@std/expect": "jsr:@std/expect@^1.0.4",
+    "@std/testing": "jsr:@std/testing@^1.0.3",
     "compress/": "https://deno.land/x/compress@v0.4.6/zlib/"
   },
-  "lock": {
-    "frozen": true
-  }
+  "license": "MIT"
 }

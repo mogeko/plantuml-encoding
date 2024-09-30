@@ -15,4 +15,5 @@ jobs:
         uses: denoland/setup-deno@v1.5.1
       - run: deno fmt --check
       - run: deno lint
-      - run: deno test --coverage --doc
+      - run: deno test --frozen --coverage --doc
+      - run: deno coverage

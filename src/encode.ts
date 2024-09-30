@@ -19,9 +19,9 @@ function* encode3bytes(b1: number, b2: number, b3: number) {
 function encode64(charCodeArray: Uint8Array) {
   return new Uint8Array((function* (arr) {
     for (let i = 0; i < arr.length; i += 3) {
-      if (arr[i] + 2 === arr.length) {
+      if (i + 2 === arr.length) {
         yield* encode3bytes(arr[i], arr[i + 1], 0);
-      } else if (arr[i] + 1 === arr.length) {
+      } else if (i + 1 === arr.length) {
         yield* encode3bytes(arr[i], 0, 0);
       } else {
         yield* encode3bytes(arr[i], arr[i + 1], arr[i + 2]);
@@ -31,7 +31,7 @@ function encode64(charCodeArray: Uint8Array) {
 }
 
 export function encode(puml: string): string {
-  return new TextDecoder("utf-8").decode(
-    encode64(deflateRaw(new TextEncoder().encode(puml))),
-  );
+  return new TextDecoder("utf-8").decode(encode64(
+    deflateRaw(new TextEncoder().encode(puml), { level: 9 }),
+  ));
 }
