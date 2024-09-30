@@ -1,0 +1,51 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@std/assert": "jsr:@std/assert@1.0.6",
+      "jsr:@std/assert@^1.0.6": "jsr:@std/assert@1.0.6",
+      "jsr:@std/expect@^1.0.4": "jsr:@std/expect@1.0.4",
+      "jsr:@std/internal@^1.0.4": "jsr:@std/internal@1.0.4"
+    },
+    "jsr": {
+      "@std/assert@1.0.6": {
+        "integrity": "1904c05806a25d94fe791d6d883b685c9e2dcd60e4f9fc30f4fc5cf010c72207",
+        "dependencies": [
+          "jsr:@std/internal@^1.0.4"
+        ]
+      },
+      "@std/expect@1.0.4": {
+        "integrity": "97f68a445a9de0d9670200d2b7a19a7505a01b2cb390a983ba8d97d90ce30c4f",
+        "dependencies": [
+          "jsr:@std/assert@^1.0.6",
+          "jsr:@std/internal@^1.0.4"
+        ]
+      },
+      "@std/internal@1.0.4": {
+        "integrity": "62e8e4911527e5e4f307741a795c0b0a9e6958d0b3790716ae71ce085f755422"
+      }
+    }
+  },
+  "remote": {
+    "https://deno.land/x/compress@v0.4.6/utils/uint8.ts": "9c82e09c065f1f4bc648e3b14df441b43a7960fc7bdb29e9fb8d3a69c7e9d425",
+    "https://deno.land/x/compress@v0.4.6/zlib/deflate.ts": "e1e3b406dcc3e20021e53cde427b4b9ced752b72df820de73fec17c6e5ba999e",
+    "https://deno.land/x/compress@v0.4.6/zlib/inflate.ts": "618cc3dd25d202bf6b89d92f3ab2865e7495884cafce950638c77cbc1537aeb1",
+    "https://deno.land/x/compress@v0.4.6/zlib/mod.ts": "4dca9c1e934b7ab27f31c318abd7bfd39b09be96fd76ba27bd46f3a4e73b4ad0",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/adler32.ts": "e34c7596d63a655755c4b0a44a40d4f9c1d1c4d3b891e5c1f3f840f8939e1940",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/crc32.ts": "b9bc4adaf327d32585205d1176bd52f6453c06dd1040544611d4c869e638119c",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/deflate.ts": "8d1dd88630279313e50deed4fe5feefe8128307cc48fa560e659b5234ab09d83",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/gzheader.ts": "11e6da7383447aae9791308dc2350a809fa341a876a2da396b03a2a31408c20c",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/inffast.ts": "282daf5ea16bb876d26e342f3c24fe1a8ec84640e713a970b02232955a853f86",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/inflate.ts": "76751c1a5b18d70a929fa31ce4959db0bde1b9097bfa1b5ea3b4d1fba2ab92fa",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/inftrees.ts": "8a6d765a5c42bf3b6990060cabbe52e88493f8ce6d082e6e35d97756914cfb8e",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/messages.ts": "c82229bd67ccc3b6162f3aca1c5e7f936e546aa91ac9a9ac4fcfefc3a9dc5ac8",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/status.ts": "5987864d2d43d59bbbfa2e6ef4d5a07284c1d10489cc5843ddf41ac547957ac3",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/trees.ts": "6b65a767646e031e87e7b725ffad0c511fe701f393a01652e1e7ee8884f60fee",
+    "https://deno.land/x/compress@v0.4.6/zlib/zlib/zstream.ts": "c110fd5919235e317d64933852e24a1bba0126202be592e90e58f7b19315ad93"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/expect@^1.0.4"
+    ]
+  }
+}

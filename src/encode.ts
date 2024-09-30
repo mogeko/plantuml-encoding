@@ -16,8 +16,8 @@ function* encode3bytes(b1: number, b2: number, b3: number) {
   yield encode6bit(b3 & 0x3f);
 }
 
-function encode64(textEncoded: Uint8Array) {
-  return new Uint8Array((function* (arr: Uint8Array) {
+function encode64(charCodeArray: Uint8Array) {
+  return new Uint8Array((function* (arr) {
     for (let i = 0; i < arr.length; i += 3) {
       if (arr[i] + 2 === arr.length) {
         yield* encode3bytes(arr[i], arr[i + 1], 0);
@@ -27,7 +27,7 @@ function encode64(textEncoded: Uint8Array) {
         yield* encode3bytes(arr[i], arr[i + 1], arr[i + 2]);
       }
     }
-  })(textEncoded));
+  })(charCodeArray));
 }
 
 export function encode(puml: string) {

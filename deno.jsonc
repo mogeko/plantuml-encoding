@@ -1,12 +1,7 @@
 {
   "imports": {
-    // dependencies
-    "compress/": "https://deno.land/x/compress@v0.4.6/zlib/",
-
-    // devDependencies
-    "@std/assert": "jsr:@std/assert@1",
-
-    // alias
-    "@/": "./src/"
+    "@/": "./src/",
+    "@std/expect": "jsr:@std/expect@^1.0.4",
+    "compress/": "https://deno.land/x/compress@v0.4.6/zlib/"
   }
 }
