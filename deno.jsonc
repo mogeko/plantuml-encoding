@@ -1,5 +1,6 @@
 {
   "name": "@mogeko/plantuml-encoding",
+  "version": "0.0.1",
   "tasks": {
     "test": "deno test --doc --frozen=false"
   },
