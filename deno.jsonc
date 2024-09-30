@@ -1,7 +1,13 @@
 {
+  "tasks": {
+    "test": "deno test --doc --frozen=false"
+  },
   "imports": {
     "@/": "./src/",
     "@std/expect": "jsr:@std/expect@^1.0.4",
     "compress/": "https://deno.land/x/compress@v0.4.6/zlib/"
+  },
+  "lock": {
+    "frozen": true
   }
 }
