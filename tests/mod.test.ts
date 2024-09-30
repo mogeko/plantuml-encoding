@@ -1,12 +1,17 @@
-import { decode, encode } from "@/mod.ts";
+import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
+import { decode, encode } from "@/mod.ts";
 
-Deno.test("mod", () => {
-  expect(decode(encode("Hello, world!"))).toStrictEqual("Hello, world!");
+describe("mod", () => {
+  it("hello, world", () => {
+    expect(decode(encode("Hello, world!"))).toStrictEqual("Hello, world!");
+  });
 
-  expect(decode(encode(
-    `@startuml\nA -> B: Hello / 你好'\n@enduml`,
-  ))).toStrictEqual(
-    `@startuml\nA -> B: Hello / 你好'\n@enduml`,
-  );
+  it("PlantUML code", () => {
+    expect(decode(encode(
+      `@startuml\nA -> B: Hello / 你好'\n@enduml`,
+    ))).toStrictEqual(
+      `@startuml\nA -> B: Hello / 你好'\n@enduml`,
+    );
+  });
 });
