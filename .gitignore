@@ -3,6 +3,7 @@
 .vim
 **/cov/
 crypto/_wasm/target
+deno.lock
 cli/testdata/unicode_width_crate/target
 html_cov/
 cov.lcov
