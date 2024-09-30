@@ -30,7 +30,7 @@ function encode64(charCodeArray: Uint8Array) {
   })(charCodeArray));
 }
 
-export function encode(puml: string) {
+export function encode(puml: string): string {
   return new TextDecoder("utf-8").decode(
     encode64(deflateRaw(new TextEncoder().encode(puml))),
   );

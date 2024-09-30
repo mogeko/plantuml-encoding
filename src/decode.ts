@@ -24,7 +24,7 @@ function decode64(charCodeArray: Uint8Array) {
   })(charCodeArray));
 }
 
-export function decode(cipher: string) {
+export function decode(cipher: string): string {
   return new TextDecoder("utf-8").decode(
     inflateRaw(decode64(new TextEncoder().encode(cipher))),
   );
