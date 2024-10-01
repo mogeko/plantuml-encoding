@@ -38,7 +38,7 @@ Visit the URL and you will get this flowchart:
 ```ts
 import { decode } from "jsr:@mogeko/plantuml-encoding";
 
-const pmul = decode("SrJGjLDmibBmICt9oGS0");
+const puml = decode("SrJGjLDmibBmICt9oGS0");
 console.log(puml); // A -> B: Hello
 ```
 
