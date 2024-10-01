@@ -1,4 +1,4 @@
-import { deflateRaw } from "compress/mod.ts";
+import { deflateRaw } from "pako";
 
 function encode6bit(b: number) {
   if (b < 10) return 48 + b; // 0-9
@@ -16,7 +16,7 @@ function* encode3bytes(b1: number, b2: number, b3: number) {
   yield encode6bit(b3 & 0x3f);
 }
 
-function encode64(charCodeArray: Uint8Array) {
+export function encode64(charCodeArray: Uint8Array): Uint8Array {
   return new Uint8Array((function* (arr) {
     for (let i = 0; i < arr.length; i += 3) {
       if (i + 2 === arr.length) {

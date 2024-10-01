@@ -1,6 +1,6 @@
 {
   "name": "@mogeko/plantuml-encoding",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "exports": {
     ".": "./src/mod.ts",
     "./decode": "./src/decode.ts",
@@ -10,7 +10,10 @@
     "@/": "./src/",
     "@std/expect": "jsr:@std/expect@^1.0.4",
     "@std/testing": "jsr:@std/testing@^1.0.3",
-    "compress/": "https://deno.land/x/compress@v0.4.6/zlib/"
+    "pako": "npm:pako@^2.1.0"
+  },
+  "publish": {
+    "include": ["src/*", "LICENSE", "README.md", "deno.lock"]
   },
   "license": "MIT"
 }
