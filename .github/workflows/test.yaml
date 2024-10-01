@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.0
       - name: Set up Deno
         uses: denoland/setup-deno@v1.5.1
       - run: deno fmt --check
@@ -19,7 +19,8 @@ jobs:
           deno test --frozen --coverage --doc
           deno coverage --lcov > ./coverage/cov.lcov
       - run: deno coverage
-      - uses: codecov/codecov-action@v4.5.0
+      - name: Push the coverage report to Codecov
+        uses: codecov/codecov-action@v4.5.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/cov.lcov
