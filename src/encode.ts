@@ -1,4 +1,4 @@
-import { deflateRaw } from "compress/mod.ts";
+import { deflateRaw } from "pako";
 
 function encode6bit(b: number) {
   if (b < 10) return 48 + b; // 0-9

@@ -1,4 +1,4 @@
-import { inflateRaw } from "compress/mod.ts";
+import { inflateRaw } from "pako";
 
 function decode6bit(b: number) {
   if (b === 95) return 63; // _
