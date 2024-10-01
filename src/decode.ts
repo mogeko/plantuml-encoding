@@ -16,7 +16,7 @@ function* decode4bytes(b1: number, b2: number, b3: number, b4: number) {
   yield (c2 << 6) & 0xC0 | decode6bit(b4) & 0x3F;
 }
 
-function decode64(charCodeArray: Uint8Array) {
+export function decode64(charCodeArray: Uint8Array): Uint8Array {
   return new Uint8Array((function* (arr) {
     for (let i = 0; i < arr.length; i += 4) {
       yield* decode4bytes(arr[i], arr[i + 1], arr[i + 2], arr[i + 3]);
