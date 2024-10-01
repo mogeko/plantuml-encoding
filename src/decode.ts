@@ -21,6 +21,14 @@ export function decode64(charCodeArray: Uint8Array): Uint8Array {
   })(charCodeArray));
 }
 
+/**
+ * Decode the encoded PlantUML code into a version suitable for human reading.
+ *
+ * @see https://plantuml.com/en/text-encoding
+ *
+ * @param cipher The encoded PlantUML code
+ * @returns PlantUML code suitable for human reading
+ */
 export function decode(cipher: string): string {
   return new TextDecoder("utf-8").decode(
     inflateRaw(decode64(new TextEncoder().encode(cipher))),

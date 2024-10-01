@@ -30,6 +30,14 @@ export function encode64(charCodeArray: Uint8Array): Uint8Array {
   })(charCodeArray));
 }
 
+/**
+ * Encoding the PantUML code, it can be used to create PlantUML url links.
+ *
+ * @see https://plantuml.com/en/text-encoding
+ *
+ * @param puml The PantUML code
+ * @returns The encoded PantUML code
+ */
 export function encode(puml: string): string {
   return new TextDecoder("utf-8").decode(encode64(
     deflateRaw(new TextEncoder().encode(puml), { level: 9 }),
