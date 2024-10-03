@@ -17,6 +17,25 @@ function* encode3bytes(b1: number, b2: number, b3: number) {
   yield encode6bit(b3 & 0x3f);
 }
 
+/**
+ * It is used to encode PlantUML code after `deflate` compression.
+ *
+ * @see {@link https://plantuml.com/en/text-encoding}
+ *
+ * @param charCodeArray PlantUML code compressed by `deflate` algorithm.
+ * @returns The encoded PantUML code.
+ *
+ * @example Usage
+ * ```ts
+ * import { encode64 } from "jsr:@mogeko/plantuml-encoding/encode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(
+ *   encode64(Uint8Array.of(1, 2, 3, 4, 5, 6)),
+ *   Uint8Array.of(48, 71, 56, 51, 49, 48, 75, 54)
+ * );
+ * ```
+ */
 export function encode64(charCodeArray: Uint8Array): Uint8Array {
   return new Uint8Array((function* (arr) {
     for (let i = 0; i < arr.length; i += 3) {
@@ -34,10 +53,18 @@ export function encode64(charCodeArray: Uint8Array): Uint8Array {
 /**
  * Encoding the PantUML code, it can be used to create PlantUML url links.
  *
- * @see https://plantuml.com/en/text-encoding
+ * @see {@link https://plantuml.com/en/text-encoding}
  *
- * @param puml The PantUML code
- * @returns The encoded PantUML code
+ * @param puml The PantUML code.
+ * @returns The encoded PantUML code.
+ *
+ * @example Usage
+ * ```ts
+ * import { encode } from "jsr:@mogeko/plantuml-encoding/encode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(encode("A -> B: Hello"), "SrJGjLDmibBmICt9oGS0");
+ * ```
  */
 export function encode(puml: string): string {
   return new TextDecoder("utf-8").decode(
