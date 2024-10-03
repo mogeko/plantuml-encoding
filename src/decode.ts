@@ -1,3 +1,22 @@
+/**
+ * Utilities for decoding PlantUML code.
+ *
+ * @see {@link https://plantuml.com/en/text-encoding}
+ *
+ * ```ts
+ * import { decode, decode64 } from "jsr:@mogeko/plantuml-encoding/decode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(decode("SrJGjLDmibBmICt9oGS0"), "A -> B: Hello");
+ * assertEquals(
+ *   decode64(Uint8Array.of(73, 113, 110, 65, 49,  87,  48, 48)),
+ *   Uint8Array.of(75, 76, 74, 6, 0, 0) // abc
+ * );
+ * ```
+ *
+ * @module
+ */
+
 // @ts-types="@types/pako"
 import { inflateRaw } from "pako";
 
@@ -13,8 +32,6 @@ function decode6bit(b: number) {
 /**
  * To restore the encoded PlantUML code to its `deflate` compressed form.
  *
- * @see {@link https://plantuml.com/en/text-encoding}
- *
  * @param charCodeArray The encoded PlantUML code.
  * @returns PlantUML code compressed by `deflate` algorithm.
  *
@@ -24,8 +41,8 @@ function decode6bit(b: number) {
  * import { assertEquals } from "jsr:@std/assert/equals";
  *
  * assertEquals(
- *   decode64(Uint8Array.of(48, 71, 56, 51, 49, 48, 75, 54)),
- *   Uint8Array.of(1, 2, 3, 4, 5, 6)
+ *   decode64(Uint8Array.of(73, 113, 110, 65, 49,  87,  48, 48)),
+ *   Uint8Array.of(75, 76, 74, 6, 0, 0) // abc
  * );
  * ```
  */
@@ -43,8 +60,6 @@ export function decode64(charCodeArray: Uint8Array): Uint8Array {
 
 /**
  * Decode the encoded PlantUML code into a version suitable for human reading.
- *
- * @see {@link https://plantuml.com/en/text-encoding}
  *
  * @param cipher The encoded PlantUML code.
  * @returns PlantUML code suitable for human reading.

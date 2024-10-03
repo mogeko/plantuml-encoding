@@ -1,3 +1,22 @@
+/**
+ * Utilities for encoding PlantUML code.
+ *
+ * @see {@link https://plantuml.com/en/text-encoding}
+ *
+ * ```ts
+ * import { encode, encode64 } from "jsr:@mogeko/plantuml-encoding/encode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(encode("A -> B: Hello"), "SrJGjLDmibBmICt9oGS0");
+ * assertEquals(
+ *   encode64(Uint8Array.of(75, 76, 74, 6, 0, 0)), // abc
+ *   Uint8Array.of(73, 113, 110, 65, 49,  87,  48, 48)
+ * );
+ * ```
+ *
+ * @module
+ */
+
 // @ts-types="@types/pako"
 import { deflateRaw } from "pako";
 
@@ -20,8 +39,6 @@ function* encode3bytes(b1: number, b2: number, b3: number) {
 /**
  * It is used to encode PlantUML code after `deflate` compression.
  *
- * @see {@link https://plantuml.com/en/text-encoding}
- *
  * @param charCodeArray PlantUML code compressed by `deflate` algorithm.
  * @returns The encoded PantUML code.
  *
@@ -31,8 +48,8 @@ function* encode3bytes(b1: number, b2: number, b3: number) {
  * import { assertEquals } from "jsr:@std/assert/equals";
  *
  * assertEquals(
- *   encode64(Uint8Array.of(1, 2, 3, 4, 5, 6)),
- *   Uint8Array.of(48, 71, 56, 51, 49, 48, 75, 54)
+ *   encode64(Uint8Array.of(75, 76, 74, 6, 0, 0)), // abc
+ *   Uint8Array.of(73, 113, 110, 65, 49,  87,  48, 48)
  * );
  * ```
  */
@@ -52,8 +69,6 @@ export function encode64(charCodeArray: Uint8Array): Uint8Array {
 
 /**
  * Encoding the PantUML code, it can be used to create PlantUML url links.
- *
- * @see {@link https://plantuml.com/en/text-encoding}
  *
  * @param puml The PantUML code.
  * @returns The encoded PantUML code.
