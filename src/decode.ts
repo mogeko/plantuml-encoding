@@ -1,3 +1,22 @@
+/**
+ * Utilities for decoding PlantUML code.
+ *
+ * @see {@link https://plantuml.com/en/text-encoding}
+ *
+ * ```ts
+ * import { decode, decode64 } from "jsr:@mogeko/plantuml-encoding/decode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(decode("SrJGjLDmibBmICt9oGS0"), "A -> B: Hello");
+ * assertEquals(
+ *   decode64(Uint8Array.of(73, 113, 110, 65, 49,  87,  48, 48)),
+ *   Uint8Array.of(75, 76, 74, 6, 0, 0) // abc
+ * );
+ * ```
+ *
+ * @module
+ */
+
 // @ts-types="@types/pako"
 import { inflateRaw } from "pako";
 
@@ -10,6 +29,23 @@ function decode6bit(b: number) {
   return -1;
 }
 
+/**
+ * To restore the encoded PlantUML code to its `deflate` compressed form.
+ *
+ * @param charCodeArray The encoded PlantUML code.
+ * @returns PlantUML code compressed by `deflate` algorithm.
+ *
+ * @example Usage
+ * ```ts
+ * import { decode64 } from "jsr:@mogeko/plantuml-encoding/decode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(
+ *   decode64(Uint8Array.of(73, 113, 110, 65, 49,  87,  48, 48)),
+ *   Uint8Array.of(75, 76, 74, 6, 0, 0) // abc
+ * );
+ * ```
+ */
 export function decode64(charCodeArray: Uint8Array): Uint8Array {
   return new Uint8Array((function* (arr) {
     for (let i = 0; i < arr.length; i += 4) {
@@ -25,10 +61,16 @@ export function decode64(charCodeArray: Uint8Array): Uint8Array {
 /**
  * Decode the encoded PlantUML code into a version suitable for human reading.
  *
- * @see https://plantuml.com/en/text-encoding
+ * @param cipher The encoded PlantUML code.
+ * @returns PlantUML code suitable for human reading.
  *
- * @param cipher The encoded PlantUML code
- * @returns PlantUML code suitable for human reading
+ * @example Usage
+ * ```ts
+ * import { decode } from "jsr:@mogeko/plantuml-encoding/decode";
+ * import { assertEquals } from "jsr:@std/assert/equals";
+ *
+ * assertEquals(decode("SrJGjLDmibBmICt9oGS0"), "A -> B: Hello");
+ * ```
  */
 export function decode(cipher: string): string {
   return inflateRaw(

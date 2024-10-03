@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/mogeko/plantuml-encoding/graph/badge.svg?token=sOSMiP3F42)](https://codecov.io/gh/mogeko/plantuml-encoding)
 [![JSR](https://jsr.io/badges/@mogeko/plantuml-encoding)](https://jsr.io/@mogeko/plantuml-encoding)
 
-A Deno library for encoding PlantUML.
+A Deno library for encoding and decoding PlantUML code.
 
 ## Installation
 
