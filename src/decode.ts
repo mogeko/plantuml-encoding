@@ -1,3 +1,4 @@
+// @ts-types="@types/pako"
 import { inflateRaw } from "pako";
 
 function decode6bit(b: number) {
@@ -30,7 +31,8 @@ export function decode64(charCodeArray: Uint8Array): Uint8Array {
  * @returns PlantUML code suitable for human reading
  */
 export function decode(cipher: string): string {
-  return new TextDecoder("utf-8").decode(
-    inflateRaw(decode64(new TextEncoder().encode(cipher))),
+  return inflateRaw(
+    decode64(new TextEncoder().encode(cipher)),
+    { to: "string" },
   );
 }
