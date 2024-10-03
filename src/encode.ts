@@ -1,3 +1,4 @@
+// @ts-types="@types/pako"
 import { deflateRaw } from "pako";
 
 function encode6bit(b: number) {
@@ -39,7 +40,7 @@ export function encode64(charCodeArray: Uint8Array): Uint8Array {
  * @returns The encoded PantUML code
  */
 export function encode(puml: string): string {
-  return new TextDecoder("utf-8").decode(encode64(
-    deflateRaw(new TextEncoder().encode(puml), { level: 9 }),
-  ));
+  return new TextDecoder("utf-8").decode(
+    encode64(deflateRaw(puml, { level: 9 })),
+  );
 }
