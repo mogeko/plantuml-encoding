@@ -8,8 +8,7 @@
   },
   "imports": {
     "@/": "./src/",
-    "@std/expect": "jsr:@std/expect@^1.0.4",
-    "@std/testing": "jsr:@std/testing@^1.0.3",
+    "@types/pako": "npm:@types/pako@^2.0.3",
     "pako": "npm:pako@^2.1.0"
   },
   "publish": {
