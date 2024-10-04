@@ -1,18 +1,18 @@
 {
   "name": "@mogeko/plantuml-encoding",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "exports": {
     ".": "./src/mod.ts",
     "./decode": "./src/decode.ts",
     "./encode": "./src/encode.ts"
   },
+  "license": "MIT",
+  "publish": {
+    "include": ["src/*", "LICENSE"]
+  },
   "imports": {
     "@/": "./src/",
     "@types/pako": "npm:@types/pako@^2.0.3",
     "pako": "npm:pako@^2.1.0"
-  },
-  "publish": {
-    "include": ["src/*", "LICENSE", "README.md", "deno.lock"]
-  },
-  "license": "MIT"
+  }
 }
