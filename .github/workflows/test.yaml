@@ -21,7 +21,7 @@ jobs:
           deno coverage --lcov > ./coverage/cov.lcov
       - run: deno coverage
       - name: Push the coverage report to Codecov
-        uses: codecov/codecov-action@v4.5.0
+        uses: codecov/codecov-action@v4.6.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/cov.lcov
