@@ -10,9 +10,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.1
+      - uses: actions/checkout@v4.2.2
       - name: Set up Deno
-        uses: denoland/setup-deno@v2.0.0
+        uses: denoland/setup-deno@v2.0.1
       - run: deno fmt --check
       - run: deno lint
       - run: |
