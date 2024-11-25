@@ -23,5 +23,5 @@ jobs:
         uses: codecov/codecov-action@v5.0.7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/cov.lcov
+          files: ./coverage/cov.lcov
       - run: deno publish --dry-run
