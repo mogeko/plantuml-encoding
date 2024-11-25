@@ -8,6 +8,8 @@ on:
 
 jobs:
   test:
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
@@ -22,6 +24,6 @@ jobs:
       - name: Push the coverage report to Codecov
         uses: codecov/codecov-action@v5.0.7
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/cov.lcov
+          use_oidc: true
       - run: deno publish --dry-run
