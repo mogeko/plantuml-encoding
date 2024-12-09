@@ -22,7 +22,7 @@ jobs:
           deno coverage --lcov > ./coverage/cov.lcov
       - run: deno coverage
       - name: Push the coverage report to Codecov
-        uses: codecov/codecov-action@v5.0.7
+        uses: codecov/codecov-action@v5.1.1
         with:
           files: ./coverage/cov.lcov
           use_oidc: true
