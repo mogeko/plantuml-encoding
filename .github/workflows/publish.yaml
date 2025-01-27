@@ -13,5 +13,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Set up Deno
-        uses: denoland/setup-deno@v2.0.1
+        uses: denoland/setup-deno@v2.0.2
       - run: deno publish
